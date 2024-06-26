@@ -132,7 +132,7 @@ static const KeyEntry    s_controlKeys[] = {
     { kKeyKana, kVK_JIS_Kana },
     { kKeyMuhenkan, s_int5VK },
     { kKeyHenkan, s_int4VK },
-    { kKeyZenkaku, kVK_ANSI_Grave }
+    // { kKeyZenkaku, kVK_ANSI_Grave }
 };
 
 
@@ -263,7 +263,7 @@ OSXKeyState::mapKeyFromEvent(KeyIDs& ids,
     }
 
     // get keyboard info
-    TISInputSourceRef currentKeyboardLayout = TISCopyCurrentKeyboardLayoutInputSource();
+    TISInputSourceRef currentKeyboardLayout = TISCopyCurrentASCIICapableKeyboardInputSource();
 
     if (currentKeyboardLayout == NULL) {
         return kKeyNone;
